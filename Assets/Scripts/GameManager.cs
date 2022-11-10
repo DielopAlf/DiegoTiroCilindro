@@ -13,7 +13,10 @@ public class GameManager : MonoBehaviour
 
     int contador;
     public Material hitMaterial;
+    [SerializeField]
     public AudioClip shotSound;
+    public AudioClip shotSound2;
+
     private AudioSource gunAudioSource;
 
     [SerializeField]
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         gunAudioSource = GetComponent<AudioSource>();
+        
     }
     // Update is called once per frame
     void Update()
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour
                     Rigidbody rigidbodyLata = hitInfo.collider.GetComponent<Rigidbody>();
                     rigidbodyLata.AddForce(rayo.direction * 50f, ForceMode.VelocityChange);
                     hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
+                    
 
                     contador += 10;
                     puntuacion.text = "Puntuación: " + contador;
