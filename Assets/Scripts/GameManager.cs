@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if((Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Ended) || (Input.GetMouseButtonUp(0)))
+
+        if ((Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Ended) || (Input.GetMouseButtonUp(0)))
         {
             gunAudioSource.PlayOneShot(shotSound);
             Vector3 pos = Input.mousePosition;
@@ -48,14 +48,15 @@ public class GameManager : MonoBehaviour
 
                     contador += 10;
                     puntuacion.text = "Puntuación: " + contador;
-                    
-                }
-                else { contador -=  5; puntuacion.text = "Puntuación: " + contador;
-                }
 
 
+                }
+                else { contador -= 5; puntuacion.text = "Puntuación: " + contador; 
+                
+                }
+         
             }
-            else { contador -= 5; puntuacion.text = "Puntuación: " + contador;
+            else { contador -= 5; puntuacion.text = "Puntuación: " + contador; 
             }
 
         }
