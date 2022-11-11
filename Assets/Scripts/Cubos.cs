@@ -47,7 +47,7 @@ public class Cubos : MonoBehaviour
                     else 
                     {
                         //hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                        LeanTween.scale(gameObject, Vector4.one * 1.0f, 1.5f);
+                        LeanTween.scale(gameObject, Vector3.one * 1.0f, 1.5f);
                         grande = false;
                     }
                 }
