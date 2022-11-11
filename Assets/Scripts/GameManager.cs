@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public Material hitMaterial;
     [SerializeField]
     public AudioClip shotSound;
-    public AudioClip shotSound2;
+    public AudioClip shotSoundMetal;
 
     private AudioSource gunAudioSource;
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
         if ((Input.touchCount >= 1 && Input.GetTouch(0).phase == TouchPhase.Ended) || (Input.GetMouseButtonUp(0)))
         {
-            gunAudioSource.PlayOneShot(shotSound);
+            //gunAudioSource.PlayOneShot(shotSound);
             Vector3 pos = Input.mousePosition;
             if (Application.platform == RuntimePlatform.Android)
             { 
@@ -49,19 +49,22 @@ public class GameManager : MonoBehaviour
                     Rigidbody rigidbodyLata = hitInfo.collider.GetComponent<Rigidbody>();
                     rigidbodyLata.AddForce(rayo.direction * 50f, ForceMode.VelocityChange);
                     hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                    
+                    gunAudioSource.PlayOneShot(shotSoundMetal);
 
                     contador += 10;
                     puntuacion.text = "Puntuación: " + contador;
 
 
                 }
-                else { contador -= 5; puntuacion.text = "Puntuación: " + contador; 
-                
+                else { contador -= 5; puntuacion.text = "Puntuación: " + contador;
+                    gunAudioSource.PlayOneShot(shotSound);
+
                 }
-         
+
             }
-            else { contador -= 5; puntuacion.text = "Puntuación: " + contador; 
+            else { contador -= 5; puntuacion.text = "Puntuación: " + contador;
+                gunAudioSource.PlayOneShot(shotSound);
+
             }
 
         }
