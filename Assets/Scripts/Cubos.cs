@@ -33,23 +33,15 @@ public class Cubos : MonoBehaviour
             {
                 if (hitInfo.collider.tag.Equals("Cubo"))
                 {
-                    Rigidbody rigidbodyCubo = hitInfo.collider.GetComponent<Rigidbody>();
+             
                     //hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                    LeanTween.scale(gameObject, Vector3.one * 4.0f, 1.5f);
                     if (grande == false) 
                     {
-                        
-                        //hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                        LeanTween.scale(gameObject, Vector3.one *4.0f, 1.5f);
-                        grande = true;
+                        Cubos cubos = hitInfo.collider.GetComponent<Cubos>();
+                        cubos.ClickOnCube();
                     }
 
-                    else 
-                    {
-                        //hitInfo.collider.GetComponent<MeshRenderer>().material = hitMaterial;
-                        LeanTween.scale(gameObject, Vector3.one * 1.0f, 1.5f);
-                        grande = false;
-                    }
+                   
                 }
                 
 
